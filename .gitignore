@@ -4,8 +4,6 @@
 *.ap_
 *.aab
 
-frontend/
-
 # Files for the ART/Dalvik VM
 *.dex
 

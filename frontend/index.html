@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home Page</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <style>
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+        }
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 5px;
+            width: 5px;
+            margin: 10px 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <body>
+        <div id="container">
+            <header>
+                <div id="logo_container">
+                    <a href="#"
+                        ><img src="./images/logo.png" width="230px" alt="logo"
+                    /></a>
+                </div>
+                <div id="search_bar">
+                    <img
+                        src="./images//searchIcon.png"
+                        width="25px"
+                        alt="searchIcon"
+                    />
+                    <input
+                        type="text"
+                        name="search"
+                        id="search"
+                        placeholder="Search Products..."
+                    />
+                </div>
+                <div id="login_container">
+                    <button>Login</button>
+                </div>
+                <div id="cart_container">
+                    <a href=""
+                        ><img
+                            src="./images/cart.png"
+                            width="35px"
+                            alt="cart-icon"
+                    /></a>
+                    <span id="cart_count">8</span>
+                </div>
+            </header>
+            <hr />
+            <nav>
+                <div id="shopByCategory_container">
+                    <img
+                        src="./images/menu.png"
+                        alt="three-line"
+                        width="25px"
+                    />
+                    <span>Shop By Category</span>
+                </div>
+                <div id="bestSeller_container">
+                    <img src="./images/offer.png" alt="offer-icon" />
+                    <span>Best Seller</span>
+                </div>
+                <div id="brands_container">
+                    <img src="./images/brand.png" alt="offer-icon" />
+                    <span>Brand</span>
+                </div>
+
+                <div id="deals_container">
+                    <img src="./images/deals.png" alt="offer-icon" />
+                    <span>Deals</span>
+                </div>
+                <div id="blogs_container">
+                    <img src="./images/blogs.png" alt="offer-icon" />
+                    <span>Blogs</span>
+                </div>
+                <div id="giftCard_container">
+                    <img src="./images/gifts.png" alt="offer-icon" />
+                    <span>Gift Card</span>
+                </div>
+                <div id="customerSupport_container">
+                    <img src="./images/customer.png" alt="offer-icon" />
+                    <span>Customer Support</span>
+                </div>
+                <div id="storeLocation_container">
+                    <img src="./images/location.png" alt="offer-icon" />
+                    <span>Store Locator</span>
+                </div>
+            </nav>
+            <section id="bannerContainer">
+                <div id="bannerHeader">App Sale Is Now Live</div>
+                <div id="bannerItems">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img
+                                src="https://img1.hkrtcdn.com/24436/bnr_2443520_o.jpg"
+                                style="width: 100%"
+                            />
+                        </div>
+
+                        <div class="mySlides fade">
+                            <img
+                                src="https://img3.hkrtcdn.com/24429/bnr_2442832_o.jpg"
+                                style="width: 100%"
+                            />
+                        </div>
+
+                        <div class="mySlides fade">
+                            <img
+                                src="https://img3.hkrtcdn.com/24436/bnr_2443532_o.jpg"
+                                style="width: 100%"
+                            />
+                        </div>
+                        <div class="mySlides fade">
+                            <img
+                                src="https://img1.hkrtcdn.com/24436/bnr_2443520_o.jpg"
+                                style="width: 100%"
+                            />
+                        </div>
+
+                        <div class="mySlides fade">
+                            <img
+                                src="https://img5.hkrtcdn.com/24429/bnr_2442834_o.jpg"
+                                style="width: 100%"
+                            />
+                        </div>
+
+                        <div class="mySlides fade">
+                            <img
+                                src="https://img3.hkrtcdn.com/24438/bnr_2443782_o.jpg"
+                                style="width: 100%"
+                            />
+                        </div>
+                    </div>
+                    <br />
+
+                    <div style="text-align: center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <section id="priceSlashContainer">
+                <h1>Price Slash Alert</h1>
+                <div id="priceSlashBox">
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img1.hkrtcdn.com/24454/prd_2445300_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.5 ⭐</span>
+                                <span class="cardReviews">572 reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Biozyme Iso-Zero, 4.4 lb Low Carb
+                                Ice Cream Chocolate
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹4,849</span>
+                                <span>₹6,399</span>
+                                <span>24% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹6,110</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img1.hkrtcdn.com/24436/prd_2443590-MuscleBlaze-Pre-Workout-WrathX-1.1-lb-Fruit-Fury_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.1 ⭐</span>
+                                <span class="cardReviews">3.6k reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Pre Workout WrathX, 1.1 lb Fruit
+                                Fury
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹2,049</span>
+                                <span>₹3,499</span>
+                                <span>41% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹1,988</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img7.hkrtcdn.com/24437/prd_2443606-MuscleBlaze-Whey-Gold-Protein-2.2-lb-Rich-Milk-Chocolate_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.5 ⭐</span>
+                                <span class="cardReviews">2k reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Whey Gold Protein, 2.2 lb Rich Milk
+                                Chocolate
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹3,299</span>
+                                <span>₹4,399</span>
+                                <span>25% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹3,200</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img1.hkrtcdn.com/24444/prd_2444380_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.6 ⭐</span>
+                                <span class="cardReviews">27 reviews</span>
+                            </div>
+                            <p class="title">
+                                TrueBasics Biotin 10000 mcg, 60 tablet(s)
+                                Unflavoured
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹499</span>
+                                <span>₹599</span>
+                                <span>16% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹484</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <section id="priceSlashBottom">
+                <img
+                    src="https://img9.hkrtcdn.com/24442/bnr_2444148_o.png"
+                    alt=""
+                />
+                <img
+                    src="https://img7.hkrtcdn.com/24444/bnr_2444326_o.jpg"
+                    alt=""
+                />
+                <img
+                    src="https://img5.hkrtcdn.com/24442/bnr_2444154_o.jpg"
+                    alt=""
+                />
+                <img
+                    src="https://img1.hkrtcdn.com/24442/bnr_2444150_o.jpg"
+                    alt=""
+                />
+            </section>
+            <hr />
+            <section id="priceSlashContainer">
+                <h1>Top Deals</h1>
+                <div id="priceSlashBox">
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img2.hkrtcdn.com/13488/prd_1348781-MB-Fuel-One-Whey-Protein-Immunity-2.2-lb-Chocolate_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.3 ⭐</span>
+                                <span class="cardReviews">1.2k reviews</span>
+                            </div>
+                            <p class="title">
+                                MB Fuel One Whey Protein Immunity+, 2.2 lb
+                                Chocolate
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹1,799</span>
+                                <span>₹2,599</span>
+                                <span>30% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹1,745</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img10.hkrtcdn.com/10610/prd_1060999-MuscleBlaze-Pre-Workout-Ripped-0.55-lb-Raspberry-Lemonade_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.3 ⭐</span>
+                                <span class="cardReviews">290 reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Pre Workout Ripped, 0.55 lb
+                                Raspberry Lemonade
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹499</span>
+                                <span>₹679</span>
+                                <span>26% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹484</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img1.hkrtcdn.com/19939/prd_1993850-MuscleBlaze-Fish-Oil-1000-mg-Indias-Only-Labdoor-USA-Certified-for-Purity-Accuracy-60-softgels_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.6 ⭐</span>
+                                <span class="cardReviews">675 reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Fish Oil (1000 mg) India's Only
+                                Labdoor USA Certified...
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹1,999</span>
+                                <span>₹2,199</span>
+                                <span>9% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹1,939</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img1.hkrtcdn.com/21447/prd_2144620-MuscleBlaze-High-Protein-Oats-2-kg-Dark-Chocolate_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.4 ⭐</span>
+                                <span class="cardReviews">165 reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze High Protein Oats, 2 kg Dark
+                                Chocolate
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹1,199</span>
+                                <span>₹1,275</span>
+                                <span>5% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹1,163</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <section id="priceSlashBottom">
+                <img
+                    src="https://img9.hkrtcdn.com/24441/bnr_2444088_o.jpg"
+                    alt=""
+                />
+                <img
+                    src="https://img1.hkrtcdn.com/24441/bnr_2444090_o.jpg"
+                    alt=""
+                />
+                <img
+                    src="https://img1.hkrtcdn.com/24442/bnr_2444190_o.jpg"
+                    alt=""
+                />
+                <img
+                    src="https://img3.hkrtcdn.com/24442/bnr_2444192_o.jpg"
+                    alt=""
+                />
+            </section>
+            <hr />
+            <section id="priceSlashContainer">
+                <h1>Pick Of The Day</h1>
+                <div id="priceSlashBox">
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img10.hkrtcdn.com/14847/prd_1484609-MuscleBlaze-Creatine-Monohydrate-Unflavoured-0.55-lb_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.5 ⭐</span>
+                                <span class="cardReviews">3.5k reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Creatine Monohydrate, Unflavoured
+                                0.55 lb
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹1,099</span>
+                                <span>₹1,649</span>
+                                <span>33% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹1,066</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img3.hkrtcdn.com/21438/prd_2143782-HealthKart-Fish-Oil-60-Softgels-with-Multivitamin-60-vegetarian-tablets-2-PiecesPack_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.7 ⭐</span>
+                                <span class="cardReviews">61 reviews</span>
+                            </div>
+                            <p class="title">
+                                HealthKart Fish Oil 60 Softgels with
+                                Multivitamin 60 vegetarian tablets, ...
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹675</span>
+                                <span>₹999</span>
+                                <span>32% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹655</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img7.hkrtcdn.com/22783/prd_2278206-GNC-Pro-Performance-100-Whey-Protein-4-lb-Chocolate-Fudge_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.4 ⭐</span>
+                                <span class="cardReviews">3.6k reviews</span>
+                            </div>
+                            <p class="title">
+                                GNC Pro Performance 100% Whey Protein, 4 lb
+                                Chocolate Fudge
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹4,499</span>
+                                <span>₹7,499</span>
+                                <span>40% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹4,274</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImgContainer">
+                            <img
+                                src="https://img5.hkrtcdn.com/24443/prd_2444234-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_c_s.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="cardInfoContainer">
+                            <div class="ratingContainer">
+                                <span class="rating">4.4 ⭐</span>
+                                <span class="cardReviews">3.6k reviews</span>
+                            </div>
+                            <p class="title">
+                                MuscleBlaze Biozyme Performance Whey, 4.4 lb
+                                Rich Chocolate
+                            </p>
+                            <div class="priceContainer">
+                                <span>₹4,899</span>
+                                <span>₹6,389</span>
+                                <span>23% off</span>
+                            </div>
+                            <div class="premiumContainer">
+                                <img
+                                    src="./images/star.png"
+                                    width="18px"
+                                    alt=""
+                                />
+                                <span>₹4,752</span>
+                                <span>for Premium Member</span>
+                            </div>
+                            <div class="addToCartBtnContainer">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cartNew.svg"
+                                    alt=""
+                                />
+                                <!-- <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/cart-white-new.svg"
+                                    alt=""
+                                /> -->
+                                <span>Add To Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <section id="priceSlashBottom">
+                <img
+                    src="https://img7.hkrtcdn.com/24452/bnr_2445136_o.png"
+                    alt=""
+                />
+                <img
+                    src="https://img9.hkrtcdn.com/24452/bnr_2445138_o.jpg"
+                    alt=""
+                />
+                <img
+                    src="https://img1.hkrtcdn.com/24452/bnr_2445140_o.png"
+                    alt=""
+                />
+                <img
+                    src="https://img3.hkrtcdn.com/24452/bnr_2445142_o.jpg"
+                    alt=""
+                />
+            </section>
+            <hr />
+            <section id="brandContainer">
+                <h1>Brand Range</h1>
+                <div class="brandImages">
+                    <img
+                        src="https://img3.hkrtcdn.com/22115/bnr_2211472_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img7.hkrtcdn.com/22043/normal_2204256_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img9.hkrtcdn.com/22043/normal_2204258_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img1.hkrtcdn.com/22043/normal_2204260_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img9.hkrtcdn.com/22101/bnr_2210088_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img9.hkrtcdn.com/22101/bnr_2210088_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img1.hkrtcdn.com/22099/bnr_2209880_o.png"
+                        alt=""
+                    />
+                    <img
+                        src="https://img7.hkrtcdn.com/22043/normal_2204266_o.png"
+                        alt=""
+                    />
+                    <img src="" alt="" />
+                </div>
+            </section>
+            <hr />
+            <section id="whyFitnessBazzarContainer">
+                <h1>Why FitnessBazzar ?</h1>
+                <div class="cards">
+                    <div class="item">
+                        <img
+                            src="https://img9.hkrtcdn.com/20791/normal_2079088_o.png"
+                            alt=""
+                        />
+                        <h4>Wide range of Nutritional products</h4>
+                        <p>One-stop fitness and health destination</p>
+                    </div>
+                    <div class="item">
+                        <img
+                            src="https://img3.hkrtcdn.com/20791/normal_2079092_o.png"
+                            alt=""
+                        />
+                        <h4>100% Original & Authentic</h4>
+                        <p>Tight control on sourcing and distribution</p>
+                    </div>
+                    <div class="item">
+                        <img
+                            src="https://img1.hkrtcdn.com/20791/normal_2079090_o.png"
+                            alt=""
+                        />
+                        <h4>Guide to Fit and Healthy Lifestyle</h4>
+                        <p>Your true partner in health & wellness journey</p>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <section id="downloadContainer">
+                <div class="left">
+                    <img
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/download-App-IMG.svg"
+                        alt=""
+                    />
+                    <div id="blueRectangle"></div>
+                </div>
+                <div class="right">
+                    <p>Download the</p>
+                    <h1>FitnessBazzar Mobile app</h1>
+                    <div class="right-list">
+                        <div class="list-item">
+                            <div class="list-item-img">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/app-cart.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="list-item-info">
+                                <h1>Easier, Faster Shopping</h1>
+                                <p>
+                                    Get Authentic supplements, Fitness
+                                    solutions, and a healthy lifestyle
+                                </p>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-img">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/app-watch.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="list-item-info">
+                                <h1>Fuel your Fitness Goals</h1>
+                                <p>
+                                    Complete challenges to build habit & win HK
+                                    cash
+                                </p>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-img">
+                                <img
+                                    src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/app-tick.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="list-item-info">
+                                <h1>Get Exclusive App Only Benefits</h1>
+                                <p>Extra discounts, offers and cashbacks</p>
+                            </div>
+                        </div>
+                        <div class="downloadBtnContainer">
+                            <div class="gPlay">
+                                <div class="icon">
+                                    <img
+                                        src="./images/playstore.png"
+                                        width="32px"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="name">
+                                    <p>Get it on</p>
+                                    <h6>Google Play</h6>
+                                </div>
+                            </div>
+                            <div class="gPlay">
+                                <img
+                                    src="./images/apple.png"
+                                    width="32px"
+                                    alt=""
+                                />
+                                <div class="name">
+                                    <p>Download on the</p>
+                                    <h6>App Store</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr style="margin-top: -17px" />
+            <footer>
+                <div class="enter-email" style="padding: 0 20px">
+                    <span>Get Email Updates:</span>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter Email Address"
+                    />
+                    <button>Sign Up</button>
+                </div>
+                <div>
+                    <div id="footer-body">
+                        <div id="footer-details">
+                            <ul>
+                                <h4>Customer Service</h4>
+                                <li>Contact Us</li>
+                                <li>Order Status</li>
+                                <li>Shipping</li>
+                                <li>Return Policy & Exchanges</li>
+                                <li>Price Adjustments</li>
+                                <li>Gift Cards</li>
+                                <li>Gift Cards</li>
+                                <li>Product Recalls</li>
+                                <li>India</li>
+                            </ul>
+                            <ul>
+                                <h4>About Us</h4>
+                                <li>All Brands</li>
+                                <li>Careers</li>
+                                <li>Corporate Social Responsibility</li>
+                                <li>Diversity, Inclusion & Belonging</li>
+                                <li>Get Email Updates</li>
+                                <li>FitnessBazzar Blog</li>
+                                <li>The Thread</li>
+                                <li>Fitness Podcast</li>
+                            </ul>
+                            <ul>
+                                <h4>Stores & Services</h4>
+                                <li>Find a Store</li>
+                                <li>Free Style Help</li>
+                                <li>Alterations & Tailoring</li>
+                                <li>Pop-In Shop</li>
+                                <li>Virtual Events</li>
+                                <li>Spa FitnessBazzar</li>
+                                <li>FitnessBazzar Restaurants</li>
+                                <li>FitnessBazzar Local</li>
+                            </ul>
+                            <ul>
+                                <h4>FitnessBazzar Card & Rewards</h4>
+                                <li>The Fitness Club Rewards</li>
+                                <li>Pay My Bill</li>
+                                <li>Manage My Fitness Card</li>
+                            </ul>
+                            <ul>
+                                <h4>FitnessBazzar, Inc.</h4>
+                                <li>FitnessBazzar Rack</li>
+                                <li>FitnessBazzar Canada</li>
+                                <li>Investor Relations</li>
+                                <li>Press Releases</li>
+                                <li>FitnessBazzar Media Network</li>
+                            </ul>
+                        </div>
+                        <div id="footer-links">
+                            <h3>Socail Links</h3>
+                            <div id="footer-social">
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/6433/6433685.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/665/665213.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/665/665228.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/665/665209.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/3018/3018447.png"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                        <div id="top" onclick="scrollFunction1()">
+                            <img src="./images/top.png" alt="" />
+                            <p>Top</p>
+                        </div>
+                    </div>
+                    <div id="footer-policy">
+                        <ul>
+                            <li>Privacy</li>
+                            <li>Do Not Sell My Personal Information</li>
+                            <li>Terms & Conditions</li>
+                            <li>Interest-Based Ads</li>
+                            <li>©2023 FitnessBazzar, Inc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+<script>
+    let slideIndex = 0;
+    function scrollFunction1() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+</script>
