@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+                line-height: 24px;
+                letter-spacing: 0.1px;
+            }
+            #flexbox {
+                display: flex;
+                width: 400px;
+                justify-content: space-between;
+                position: relative;
+            }
+            #flexbox div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3px;
+            }
+            #icon {
+                display: flex;
+            }
+            hr {
+                width: 350px;
+                z-index: -1;
+                position: absolute;
+                left: 600px;
+                top: 40px;
+            }
+            nav {
+                width: 80%;
+                margin: auto;
+                display: flex;
+                gap: 200px;
+                align-items: center;
+                padding: 20px;
+            }
+            #single_header {
+                border-bottom: 3px solid rgb(228, 225, 219);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px -5px,
+                    rgba(0, 0, 0, 0.04) 0px 5px 5px -5px;
+            }
+
+            footer {
+                width: 80%;
+                margin: auto;
+                color: rgb(132, 132, 132);
+                padding: 10px;
+            }
+            #cartContent {
+                background-color: rgb(237, 234, 240);
+            }
+            #cartContainer {
+                width: 80%;
+                display: flex;
+                gap: 20px;
+                margin: auto;
+                padding: 10px;
+            }
+            #rightSection {
+                width: 65%;
+                padding: 0 20px 30px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 10px;
+            }
+            #leftSection {
+                width: 35%;
+                background-color: rgb(51, 127, 153);
+            }
+
+            #rightSectionHeading {
+                margin: 30px 20px;
+            }
+
+            .cartItem {
+                display: flex;
+                gap: 20px;
+                background-color: rgb(255, 255, 255);
+                align-items: center;
+                border: 1px solid gray;
+                padding: 30px;
+                border-radius: 10px;
+                margin: 20px;
+            }
+            .cartItemTitle {
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+            .cartItemPrice {
+                margin-bottom: 5px;
+            }
+            .cartItemPrice .price {
+                font-size: 18px;
+                margin-right: 5px;
+                font-weight: 600;
+            }
+            .cartItemPrice .off {
+                font-size: 13px;
+                color: #00922e;
+                font-weight: 600;
+            }
+            .cartItemMRP {
+                color: #77777e;
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+            .cartItemMRP span {
+                text-decoration: line-through;
+            }
+            .cartItemCounter button {
+                width: 25px;
+                height: 25px;
+                outline: none;
+                border: none;
+                color: rgb(39, 39, 39);
+                background-color: rgb(244, 239, 239);
+                font-size: 22px;
+                border-radius: 1px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            .cartItemCounter .value {
+                color: #29d462;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="single_header">
+            <nav>
+                <a href="../index.html">
+                    <div id="logo">
+                        <img src="../images/logo.png" width="210px" alt="" />
+                    </div>
+                </a>
+                <div id="flexbox">
+                    <div>
+                        <img
+                            src="https://static1.hkrtcdn.com/hknext/static/media/checkout/blue-cart.svg"
+                            alt=""
+                        />
+                        <span>Cart</span>
+                    </div>
+                    <div>
+                        <img
+                            src="https://static1.hkrtcdn.com/hknext/static/media/checkout/grey-address.svg"
+                            alt=""
+                        />
+                        <span>Address</span>
+                    </div>
+                    <div>
+                        <img
+                            src="https://static1.hkrtcdn.com/hknext/static/media/checkout/grey-payment.svg"
+                            alt=""
+                        />
+                        <span>Payment</span>
+                    </div>
+                </div>
+                <hr />
+            </nav>
+        </div>
+        <div id="cartContent">
+            <section id="cartContainer">
+                <div id="rightSection">
+                    <h1 id="rightSectionHeading">Shopping Cart</h1>
+                    <div id="cartBox">
+                        <div class="cartItem">
+                            <div class="cartItemImg">
+                                <img
+                                    src="https://img7.hkrtcdn.com/24437/prd_2443606-MuscleBlaze-Whey-Gold-Protein-2.2-lb-Rich-Milk-Chocolate_c_t.jpg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="cartItemDetails">
+                                <div class="cartItemTitle">
+                                    MuscleBlaze Whey Gold Protein, 2.2 lb Rich
+                                    Milk Chocolate
+                                </div>
+                                <div class="cartItemPrice">
+                                    <span class="price">₹3299</span>
+                                    <span class="off">25% OFF</span>
+                                </div>
+                                <div class="cartItemMRP">
+                                    MRP: <span> ₹4299</span>
+                                </div>
+                                <div class="cartItemCounter">
+                                    <button
+                                        class="decrement"
+                                        onclick="decrement()"
+                                    >
+                                        -
+                                    </button>
+                                    <span class="value">1</span>
+                                    <button
+                                        class="increment"
+                                        onclick="increment()"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cartItemDelete"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="leftSection">okk</div>
+            </section>
+        </div>
+        <!-- <footer>
+            <p>Copyright © , HealthKart.com, or its affiliates</p>
+            <div>
+                <img
+                    src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay1.svg"
+                    alt=""
+                />
+                <img
+                    src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay2.svg"
+                    alt=""
+                />
+                <img
+                    src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay3.svg"
+                    alt=""
+                />
+                <img
+                    src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay4.svg"
+                    alt=""
+                />
+                <img
+                    src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay5.svg"
+                    alt=""
+                />
+                <img
+                    src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay6.svg"
+                    alt=""
+                />
+            </div>
+        </footer> -->
+    </body>
+</html>
+<script></script>
