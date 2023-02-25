@@ -57,7 +57,8 @@
                 padding: 10px;
             }
             #cartContent {
-                background-color: rgb(237, 234, 240);
+                background-color: rgb(247, 246, 248);
+                min-height: 85vh;
             }
             #cartContainer {
                 width: 80%;
@@ -74,7 +75,6 @@
             }
             #leftSection {
                 width: 35%;
-                background-color: rgb(51, 127, 153);
             }
 
             #rightSectionHeading {
@@ -130,6 +130,52 @@
             }
             .cartItemCounter .value {
                 color: #29d462;
+            }
+            #leftSection div {
+                background-color: white;
+                margin: 15px;
+                border-radius: 5px;
+            }
+            #pincodeCon {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+            #pincodeCon input {
+                border: none;
+                outline: none;
+            }
+            #pincodeCon span {
+                font-size: 14px;
+                color: rgb(18, 206, 220);
+            }
+            #couponCon {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                padding: 0 5px;
+            }
+            #couponConLeft {
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+                gap: 10px;
+            }
+            #paymentBtnCon {
+                border-radius: 8px;
+                height: 56px;
+                line-height: 56px;
+                border: none;
+                font-weight: 600;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                background-color: #00b5b7 !important;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -211,11 +257,37 @@
                         </div>
                     </div>
                 </div>
-                <div id="leftSection">okk</div>
+                <div id="leftSection">
+                    <div id="pincodeCon">
+                        <input type="text" placeholder="Enter Pincode" />
+                        <span>Check</span>
+                    </div>
+                    <div id="couponCon">
+                        <div id="couponConLeft">
+                            <img
+                                width="24px"
+                                src="https://static1.hkrtcdn.com/hknext/static/media/cart/discount-new.svg"
+                                alt=""
+                            />
+                            <span>Apply Coupon</span>
+                        </div>
+                        <div id="cuponConRight">
+                            <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/menu-right-arrow.svg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div id="paymentBtnCon">
+                        Proceed to Pay ₹<span id="totalAmmount">123</span>
+                    </div>
+                </div>
             </section>
         </div>
-        <!-- <footer>
-            <p>Copyright © , HealthKart.com, or its affiliates</p>
+        <footer>
+            <p style="margin-bottom: 10px">
+                Copyright © , FitnessBazzar.com, or its affiliates
+            </p>
             <div>
                 <img
                     src="https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay1.svg"
@@ -242,7 +314,7 @@
                     alt=""
                 />
             </div>
-        </footer> -->
+        </footer>
     </body>
 </html>
 <script></script>

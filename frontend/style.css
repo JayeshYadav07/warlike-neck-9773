@@ -105,30 +105,30 @@ hr{
 }
 
 /* cards */
-#priceSlashContainer{
+.priceSlashContainer{
     width: 84%;
     margin: 20px auto;
     font-size: 15px;
     line-height: 1.8rem;
 }
-#priceSlashBox{
+.priceSlashBox{
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
 }
-#priceSlashBox > .card{
+.priceSlashBox > .card{
     width: 23%;
-    text-align: justify;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid rgb(239, 236, 236);
+    border: 1px solid rgb(231, 222, 222);
 }
 .card:hover{
     box-shadow: rgba(17, 12, 46, 0.15) 0px 0px 30px 0px;
     cursor: pointer;
 }
 .card:hover .addToCartBtnContainer{
-    background-color: rgb(0,181,183);
+    background-color: rgb(0, 208, 212);
+    border: none;
     color: white;
 }
 .cardImgContainer{
@@ -144,17 +144,18 @@ hr{
 }
 .cardInfoContainer{
     padding: 14px;
-    background-color: rgb(245, 244, 244);
-    border: 1px solid rgb(219, 213, 213);
+    background-color: rgb(247, 247, 247);
+    border: 1px solid rgb(211, 211, 211);
     border-radius: 0 0 10px 10px;
 }
 .rating{
-    background-color: rgb(0,181,183);
-    padding: 5px 8px;
+    background-color: rgb(0, 217, 221);
+    padding: 5px 5px 5px 5px;
     border-radius: 3px;
+    font-size: 16px;
     color: white;
-    margin-right: 10px;
     text-align: center;
+    margin-right: 10px;
 }
 .ratingContainer , .title , .priceContainer{
     margin-bottom: 14px;
@@ -163,7 +164,8 @@ hr{
     display: flex;
     align-items: center;
     gap: 5px;
-    background-color: rgb(250, 227, 175);
+    color: #1C1C28;
+    background-color: rgb(255, 243, 213);
     justify-content: center;
     padding: 5px;
     margin-bottom: 20px;
@@ -196,14 +198,14 @@ hr{
     border-radius: 10px;
     color:rgb(255, 117, 37) ;
 }
-#priceSlashBottom{
+.priceSlashBottom{
     width: 85%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     margin: 40px auto;
 }
-#priceSlashBottom img{
+.priceSlashBottom img{
     border-radius: 10px;
 }
 
