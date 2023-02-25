@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../style.css" />
+        <style>
+            * {
+                line-height: 25px;
+                font-family: sans-serif;
+            }
+            #productContainer {
+                width: 85%;
+                margin: auto;
+            }
+            #productContainer > h1 {
+                margin-top: 20px;
+                font-size: 24px;
+                font-weight: 600;
+                text-align: left;
+                margin-left: 0;
+            }
+            #singleLineFilter {
+                width: 100%;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                border: 1px solid #e9e9e9;
+                border-radius: 5px;
+                background: #fff;
+                margin: 20px 0;
+                font-weight: 600;
+                color: #1c1c28;
+            }
+            #priceTitle {
+                margin-right: 50px;
+                font-weight: 600;
+            }
+            #singleLineFilter span {
+                margin: 0 20px 0 5px;
+                font-weight: 500;
+            }
+            #singleLineFilter input {
+                height: 16px;
+                width: 16px;
+                cursor: pointer;
+                opacity: 1;
+            }
+            #productFlexBox {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 30px;
+                line-height: 21px;
+                padding: 20px 0 50px 0;
+            }
+            #productFlexBox > .card {
+                width: 23%;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid rgb(239, 236, 236);
+            }
+            #disclaimer {
+                width: 90%;
+                margin: 20px auto;
+                text-align: justify;
+                font-size: 12px;
+                line-height: 21px;
+                color: #212121;
+            }
+            #disclaimer span {
+                font-weight: bold;
+            }
+            #productContainer button {
+                padding: 7px 10px;
+                background-color: white;
+                cursor: pointer;
+                color: #5e5e69;
+                border: 1px solid #aeaeb5;
+                border-radius: 2px;
+            }
+            #productContainer #loadBtn {
+                display: flex;
+                justify-content: center;
+            }
+            #filterBtn {
+                padding: 10px 20px;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 4px;
+                margin-left: auto;
+                color: rgb(0, 154, 174) !important;
+            }
+            #filterBtn:hover {
+                color: rgb(0, 216, 244) !important;
+                border: 1px solid rgb(239, 230, 230);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <div id="logo_container">
+                    <a href="../index.html"
+                        ><img src="../images/logo.png" width="230px" alt="logo"
+                    /></a>
+                </div>
+                <div id="search_bar">
+                    <img
+                        src="../images//searchIcon.png"
+                        width="25px"
+                        alt="searchIcon"
+                    />
+                    <input
+                        type="text"
+                        name="search"
+                        id="search"
+                        placeholder="Search Products..."
+                    />
+                </div>
+                <div id="login_container">
+                    <button onclick="showLogin()">Login</button>
+                </div>
+                <div id="cart_container">
+                    <a href="cart.html"
+                        ><img
+                            src="../images/cart.png"
+                            width="35px"
+                            alt="cart-icon"
+                    /></a>
+                    <span id="cart_count">2</span>
+                </div>
+            </header>
+            <hr />
+            <section id="productContainer">
+                <h1>Super Saving Sale</h1>
+                <div id="singleLineFilter">
+                    <h3 id="priceTitle">Price Range</h3>
+                    <tr>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="check1"
+                                name="pl"
+                                value="0 800"
+                            />
+                            <span>800 And Below</span>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="check2"
+                                name="pl"
+                                value="801 1500"
+                            />
+                            <span>801-1,500</span>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="check3"
+                                name="pl"
+                                value="1501 2200"
+                            />
+                            <span>1,501-2,200</span>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="check4"
+                                name="pl"
+                                value="2201 3000"
+                            />
+                            <span>2,201-3,000</span>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="check5"
+                                name="pl"
+                                value="3001 3800"
+                            />
+                            <span>3,001-3,800</span>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="check6"
+                                name="pl"
+                                value="3801 Infinity"
+                            />
+                            <span>3801 And Above</span>
+                        </td>
+                    </tr>
+                    <button id="filterBtn">Filter</button>
+                </div>
+                <div id="productFlexBox"></div>
+                <div id="loadBtn">
+                    <button>Load More Products</button>
+                </div>
+            </section>
+            <div id="disclaimer">
+                <span>Disclaimer:</span> Information and statements regarding
+                the product/services have not been evaluated by the Food and
+                Drug Administration or any government authority and not intended
+                to diagnose, treat, cure, or prevent any disease.
+                Product/Services reviews are provided by users based on their
+                personal experiences & opinions, and do not reflect the opinion
+                of HealthKart. Product/Services information provided by the
+                seller on HealthKart is not exhaustive, please read the label on
+                the product carefully for complete information provided by the
+                manufacturer. The results from the products will vary from
+                person to person. No individual result should be seen as
+                typical.
+            </div>
+            <hr />
+            <footer>
+                <div class="enter-email" style="padding: 0 20px">
+                    <span>Get Email Updates:</span>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter Email Address"
+                    />
+                    <button>Sign Up</button>
+                </div>
+                <div>
+                    <div id="footer-body">
+                        <div id="footer-details">
+                            <ul>
+                                <h4>Customer Service</h4>
+                                <li>Contact Us</li>
+                                <li>Order Status</li>
+                                <li>Shipping</li>
+                                <li>Return Policy & Exchanges</li>
+                                <li>Price Adjustments</li>
+                                <li>Gift Cards</li>
+                                <li>Gift Cards</li>
+                                <li>Product Recalls</li>
+                                <li>India</li>
+                            </ul>
+                            <ul>
+                                <h4>About Us</h4>
+                                <li>All Brands</li>
+                                <li>Careers</li>
+                                <li>Corporate Social Responsibility</li>
+                                <li>Diversity, Inclusion & Belonging</li>
+                                <li>Get Email Updates</li>
+                                <li>FitnessBazzar Blog</li>
+                                <li>The Thread</li>
+                                <li>Fitness Podcast</li>
+                            </ul>
+                            <ul>
+                                <h4>Stores & Services</h4>
+                                <li>Find a Store</li>
+                                <li>Free Style Help</li>
+                                <li>Alterations & Tailoring</li>
+                                <li>Pop-In Shop</li>
+                                <li>Virtual Events</li>
+                                <li>Spa FitnessBazzar</li>
+                                <li>FitnessBazzar Restaurants</li>
+                                <li>FitnessBazzar Local</li>
+                            </ul>
+                            <ul>
+                                <h4>FitnessBazzar Card & Rewards</h4>
+                                <li>The Fitness Club Rewards</li>
+                                <li>Pay My Bill</li>
+                                <li>Manage My Fitness Card</li>
+                            </ul>
+                            <ul>
+                                <h4>FitnessBazzar, Inc.</h4>
+                                <li>FitnessBazzar Rack</li>
+                                <li>FitnessBazzar Canada</li>
+                                <li>Investor Relations</li>
+                                <li>Press Releases</li>
+                                <li>FitnessBazzar Media Network</li>
+                            </ul>
+                        </div>
+                        <div id="footer-links">
+                            <h3>Socail Links</h3>
+                            <div id="footer-social">
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/6433/6433685.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/665/665213.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/665/665228.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/665/665209.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/128/3018/3018447.png"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                        <div id="top" onclick="scrollFunction1()">
+                            <img src="../images/top.png" alt="" />
+                            <p>Top</p>
+                        </div>
+                    </div>
+                    <div id="footer-policy">
+                        <ul>
+                            <li>Privacy</li>
+                            <li>Do Not Sell My Personal Information</li>
+                            <li>Terms & Conditions</li>
+                            <li>Interest-Based Ads</li>
+                            <li>©2023 FitnessBazzar, Inc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+<script>
+    function createCard(obj) {
+        return `
+    <div class="card">
+        <div class="cardImgContainer">
+            <img src="${obj.image}" alt="" />
+        </div>
+        <div class="cardInfoContainer">
+            <div class="ratingContainer">
+                <span class="rating">${obj.rating} <img src="../images/rating.png" alt="" /> </span>
+                <span class="cardReviews">${obj.reviews} reviews</span>
+            </div>
+            <p class="title">${obj.name}</p>
+            <div class="priceContainer">
+                <span>₹${obj.discountedPrice}</span>
+                <span>₹${obj.price}</span>
+                <span>${obj.discount}% off</span>
+            </div>
+            <div class="premiumContainer">
+                <img src="../images/star.png" width="18px" alt="" />
+                    <span>₹${obj.premiumPrice}</span>
+                <span>for Premium Member</span>
+            </div>
+            <div class="addToCartBtnContainer" data-id="${obj._id}" onClick="addToCart(this)">
+                <span>Add To Cart</span>
+            </div>
+        </div>
+    </div>
+    `;
+    }
+
+    let priceSlashBox = document.querySelector("#productFlexBox");
+    let medicine = [
+        {
+            image: "https://img4.hkrtcdn.com/14798/prd_1479773-HealthKart-HK-Vitals-Healthy-Joints-60-tablets_c_t.jpg",
+            name: "MuscleBlaze Whey Protein, 4.4 lb, Rich Milk Chocolate",
+            price: 4535,
+            discount: 18,
+            rating: 4.4,
+            reviews: 1034,
+            _id: 13,
+        },
+        {
+            image: "https://img6.hkrtcdn.com/11003/prd_1100235-MuscleBlaze-Gold-Gainer-XXL-2.2-lb-Chocolate-Bliss_c_t.jpg",
+            name: "HealthKart Omega 3 1000mg with 180mg EPA and 120mg DHA, 60 softgels",
+            price: "375",
+            discount: 20,
+            rating: 4.3,
+            reviews: 1634,
+            _id: 12,
+        },
+        {
+            image: "https://img4.hkrtcdn.com/11965/prd_1196443-MuscleBlaze-High-Protein-Natural-Peanut-Butter-Unsweetened-0.750-kg-Crunchy_c_t.jpg",
+            name: "MuscleTech NitroTech Performance Series, 4 lb, Milk Chocolate",
+            price: 5635,
+            discount: 10,
+            rating: 4.6,
+            reviews: 1234,
+            _id: 11,
+        },
+        {
+            image: "https://img10.hkrtcdn.com/15757/prd_1575689_c_t.jpg",
+            name: "MuscleBlaze Natural Peanut Butter Unsweetened, 1 kg, Extra Crunchy",
+            price: 403,
+            discount: 26,
+            rating: 4.5,
+            reviews: 1831,
+            _id: 10,
+        },
+        {
+            image: "https://img4.hkrtcdn.com/14798/prd_1479773-HealthKart-HK-Vitals-Healthy-Joints-60-tablets_c_t.jpg",
+            name: "MuscleBlaze Whey Protein, 4.4 lb, Rich Milk Chocolate",
+            price: 4535,
+            discount: 18,
+            rating: 4.4,
+            reviews: 1034,
+            _id: 13,
+        },
+        {
+            image: "https://img6.hkrtcdn.com/11003/prd_1100235-MuscleBlaze-Gold-Gainer-XXL-2.2-lb-Chocolate-Bliss_c_t.jpg",
+            name: "HealthKart Omega 3 1000mg with 180mg EPA and 120mg DHA, 60 softgels",
+            price: "375",
+            discount: 20,
+            rating: 4.3,
+            reviews: 1634,
+            _id: 12,
+        },
+        {
+            image: "https://img4.hkrtcdn.com/11965/prd_1196443-MuscleBlaze-High-Protein-Natural-Peanut-Butter-Unsweetened-0.750-kg-Crunchy_c_t.jpg",
+            name: "MuscleTech NitroTech Performance Series, 4 lb, Milk Chocolate",
+            price: 5635,
+            discount: 10,
+            rating: 4.6,
+            reviews: 1234,
+            _id: 11,
+        },
+        {
+            image: "https://img10.hkrtcdn.com/15757/prd_1575689_c_t.jpg",
+            name: "MuscleBlaze Natural Peanut Butter Unsweetened, 1 kg, Extra Crunchy",
+            price: 403,
+            discount: 26,
+            rating: 4.5,
+            reviews: 1831,
+            _id: 10,
+        },
+    ];
+    medicine.forEach((element) => {
+        element.discountedPrice =
+            element.price - Math.floor(element.price / 100) * element.discount;
+        element.premiumPrice =
+            element.discountedPrice -
+            Math.floor(element.discountedPrice / 100) * 5;
+        element.name = element.name.substring(0, 60);
+        priceSlashBox.innerHTML = priceSlashBox.innerHTML + createCard(element);
+    });
+
+    function addToCart(e) {
+        console.log(e.getAttribute("data-id"));
+    }
+    function scrollFunction1() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>

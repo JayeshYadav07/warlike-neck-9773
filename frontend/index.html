@@ -174,12 +174,24 @@
                 </div>
             </section>
             <hr />
-            <section id="priceSlashContainer">
-                <h1>Price Slash Alert</h1>
+            <section class="priceSlashContainer">
+                <div style="display: flex; justify-content: space-between">
+                    <h1>Price Slash Alert</h1>
+                    <a
+                        href="./pages/product.html"
+                        style="
+                            font-size: 16px;
+                            color: rgb(0, 138, 147);
+                            text-decoration: none;
+                            font-weight: 500;
+                        "
+                        >View All</a
+                    >
+                </div>
                 <div id="priceSlashBox" class="priceSlashBox"></div>
             </section>
             <hr />
-            <section id="priceSlashBottom">
+            <section class="priceSlashBottom">
                 <img
                     src="https://img9.hkrtcdn.com/24442/bnr_2444148_o.png"
                     alt=""
@@ -198,12 +210,24 @@
                 />
             </section>
             <hr />
-            <section id="priceSlashContainer">
-                <h1>Top Deals</h1>
+            <section class="priceSlashContainer">
+                <div style="display: flex; justify-content: space-between">
+                    <h1>Top Deals</h1>
+                    <a
+                        href="./pages/product.html"
+                        style="
+                            font-size: 16px;
+                            color: rgb(0, 138, 147);
+                            text-decoration: none;
+                            font-weight: 500;
+                        "
+                        >View All</a
+                    >
+                </div>
                 <div id="top_deals" class="priceSlashBox"></div>
             </section>
             <hr />
-            <section id="priceSlashBottom">
+            <section class="priceSlashBottom">
                 <img
                     src="https://img9.hkrtcdn.com/24441/bnr_2444088_o.jpg"
                     alt=""
@@ -222,12 +246,24 @@
                 />
             </section>
             <hr />
-            <section id="priceSlashContainer">
-                <h1>Pick Of The Day</h1>
+            <section class="priceSlashContainer">
+                <div style="display: flex; justify-content: space-between">
+                    <h1>Pick Of The Day</h1>
+                    <a
+                        href="./pages/product.html"
+                        style="
+                            font-size: 16px;
+                            color: rgb(0, 138, 147);
+                            text-decoration: none;
+                            font-weight: 500;
+                        "
+                        >View All</a
+                    >
+                </div>
                 <div id="pick_of_the_day" class="priceSlashBox"></div>
             </section>
             <hr />
-            <section id="priceSlashBottom">
+            <section class="priceSlashBottom">
                 <img
                     src="https://img7.hkrtcdn.com/24452/bnr_2445136_o.png"
                     alt=""
@@ -676,12 +712,12 @@
             })
             .catch((err) => alert("Wrong Credentials"));
     }
-    let slideIndex = 0;
     function scrollFunction1() {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    showSlides();
 
+    let slideIndex = 0;
+    showSlides();
     function showSlides() {
         let i;
         let slides = document.getElementsByClassName("mySlides");
