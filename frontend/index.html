@@ -73,7 +73,7 @@
                             width="35px"
                             alt="cart-icon"
                     /></a>
-                    <span id="cart_count">2</span>
+                    <span id="cart_count">0</span>
                 </div>
             </header>
             <hr />
@@ -640,101 +640,5 @@
         </div>
     </body>
 </html>
-<script>
-    // form
-    const loginText = document.querySelector(".title-text .login");
-    const loginForm = document.querySelector("form.login");
-    const loginBtn = document.querySelector("label.login");
-    const signupBtn = document.querySelector("label.signup");
-    const signupLink = document.querySelector("form .signup-link a");
-    signupBtn.onclick = () => {
-        loginForm.style.marginLeft = "-50%";
-        loginText.style.marginLeft = "-50%";
-    };
-    loginBtn.onclick = () => {
-        loginForm.style.marginLeft = "0%";
-        loginText.style.marginLeft = "0%";
-    };
-    signupLink.onclick = () => {
-        signupBtn.click();
-        return false;
-    };
-
-    function showLogin() {
-        let wrapper = document.querySelector(".wrapper-container");
-        wrapper.style.display = "flex";
-    }
-    function hideLogin() {
-        let wrapper = document.querySelector(".wrapper-container");
-        wrapper.style.display = "none";
-    }
-
-    function signupUser() {
-        let obj = document.querySelectorAll(".signup input");
-        const payload = {
-            name: obj[0].value,
-            email: obj[1].value,
-            pass: obj[2].value,
-        };
-        console.log(payload);
-        fetch("http://localhost:8080/users/register", {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify(payload),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                alert(res.msg);
-                hideLogin();
-            })
-            .catch((err) => alert("Something went wrong"));
-    }
-    function loginUser() {
-        let obj = document.querySelectorAll(".login input");
-        const payload = {
-            email: obj[0].value,
-            pass: obj[1].value,
-        };
-        fetch("http://localhost:8080/users/login", {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify(payload),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                alert(res.msg);
-                localStorage.setItem("token", res.token);
-                hideLogin();
-            })
-            .catch((err) => alert("Wrong Credentials"));
-    }
-    function scrollFunction1() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    let slideIndex = 0;
-    showSlides();
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 3000); // Change image every 2 seconds
-    }
-</script>
+<script src="./header.js"></script>
 <script src="./script.js"></script>

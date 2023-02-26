@@ -3,7 +3,7 @@ const authenticate = function (req, res, next) {
   let token = req.headers.authorization;
   jwt.verify(token, "Jayesh", function (err, decoded) {
     if (decoded) {
-      req.body.userID = decoded.userId;
+      req.body.userID = decoded.userID;
       next();
     } else {
       res.send("Login First!");

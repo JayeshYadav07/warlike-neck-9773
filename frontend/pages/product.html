@@ -133,75 +133,38 @@
                             width="35px"
                             alt="cart-icon"
                     /></a>
-                    <span id="cart_count">2</span>
+                    <span id="cart_count" style="line-height: 16px">0</span>
                 </div>
             </header>
             <hr />
             <section id="productContainer">
                 <h1>Super Saving Sale</h1>
                 <div id="singleLineFilter">
-                    <h3 id="priceTitle">Price Range</h3>
+                    <h3 id="priceTitle">Price Sort</h3>
                     <tr>
                         <td>
                             <input
                                 type="checkbox"
                                 id="check1"
                                 name="pl"
-                                value="0 800"
+                                onchange="sortLowToHigh(this)"
                             />
-                            <span>800 And Below</span>
+                            <span>Low to High</span>
                         </td>
                         <td>
                             <input
                                 type="checkbox"
-                                id="check2"
+                                id="check1"
                                 name="pl"
-                                value="801 1500"
+                                onchange="sortHighToLow(this)"
                             />
-                            <span>801-1,500</span>
-                        </td>
-                        <td>
-                            <input
-                                type="checkbox"
-                                id="check3"
-                                name="pl"
-                                value="1501 2200"
-                            />
-                            <span>1,501-2,200</span>
-                        </td>
-                        <td>
-                            <input
-                                type="checkbox"
-                                id="check4"
-                                name="pl"
-                                value="2201 3000"
-                            />
-                            <span>2,201-3,000</span>
-                        </td>
-                        <td>
-                            <input
-                                type="checkbox"
-                                id="check5"
-                                name="pl"
-                                value="3001 3800"
-                            />
-                            <span>3,001-3,800</span>
-                        </td>
-                        <td>
-                            <input
-                                type="checkbox"
-                                id="check6"
-                                name="pl"
-                                value="3801 Infinity"
-                            />
-                            <span>3801 And Above</span>
+                            <span>High to Low</span>
                         </td>
                     </tr>
-                    <button id="filterBtn">Filter</button>
                 </div>
                 <div id="productFlexBox"></div>
                 <div id="loadBtn">
-                    <button>Load More Products</button>
+                    <button onclick="loadMore()">Load More Products</button>
                 </div>
             </section>
             <div id="disclaimer">
@@ -322,10 +285,192 @@
                     </div>
                 </div>
             </footer>
+            <div class="wrapper-container">
+                <div class="wrapper">
+                    <img
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/login/close.svg"
+                        alt=""
+                        onclick="hideLogin()"
+                    />
+                    <div class="title-text">
+                        <div class="title login">Login Form</div>
+                        <div class="title signup">Signup Form</div>
+                    </div>
+                    <div class="form-container">
+                        <div class="slide-controls">
+                            <input
+                                type="radio"
+                                name="slide"
+                                id="login"
+                                checked
+                            />
+                            <input type="radio" name="slide" id="signup" />
+                            <label for="login" class="slide login">Login</label>
+                            <label for="signup" class="slide signup"
+                                >Signup</label
+                            >
+                            <div class="slider-tab"></div>
+                        </div>
+                        <div class="form-inner">
+                            <form action="#" class="login">
+                                <div class="field">
+                                    <input
+                                        type="text"
+                                        placeholder="Email Address"
+                                        required
+                                    />
+                                </div>
+                                <div class="field">
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        required
+                                    />
+                                </div>
+                                <div class="pass-link">
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                                <button
+                                    class="field btn"
+                                    id="loginBtn"
+                                    onclick="loginUser()"
+                                >
+                                    Submit
+                                </button>
+                                <div class="signup-link">
+                                    Not a member? <a href="">Signup now</a>
+                                </div>
+                            </form>
+                            <form action="#" class="signup">
+                                <div class="field">
+                                    <input
+                                        type="text"
+                                        placeholder="Name"
+                                        required
+                                    />
+                                </div>
+                                <div class="field">
+                                    <input
+                                        type="text"
+                                        placeholder="Email Address"
+                                        required
+                                    />
+                                </div>
+                                <div class="field">
+                                    <input
+                                        type="password"
+                                        placeholder="password"
+                                        required
+                                    />
+                                </div>
+                                <button
+                                    class="field btn"
+                                    id="signupBtn"
+                                    onclick="signupUser()"
+                                >
+                                    Submit
+                                </button>
+                                <p
+                                    id="signUpMsg"
+                                    style="
+                                        margin: 10px 0px;
+                                        color: red;
+                                        font-size: 12px;
+                                        text-align: center;
+                                    "
+                                ></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
+<script src="../header.js"></script>
 <script>
+    let count = 8;
+    async function sortLowToHigh(e) {
+        if (e.checked) {
+            let productFlexBox = document.querySelector("#productFlexBox");
+            let arr = [];
+            await fetch(
+                `http://localhost:8080/products/getLowToHigh/${count}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => (arr = data));
+            productFlexBox.innerHTML = "";
+            arr.forEach((element) => {
+                element.name = element.name.substring(0, 60);
+                productFlexBox.innerHTML =
+                    productFlexBox.innerHTML + createCard(element);
+            });
+        } else {
+            let productFlexBox = document.querySelector("#productFlexBox");
+            let arr = [];
+            await fetch(`http://localhost:8080/products/get/${count}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => (arr = data));
+            productFlexBox.innerHTML = "";
+            arr.forEach((element) => {
+                element.name = element.name.substring(0, 60);
+                productFlexBox.innerHTML =
+                    productFlexBox.innerHTML + createCard(element);
+            });
+        }
+    }
+    async function sortHighToLow(e) {
+        if (e.checked) {
+            let productFlexBox = document.querySelector("#productFlexBox");
+            let arr = [];
+            await fetch(
+                `http://localhost:8080/products/getHighToLow/${count}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => (arr = data));
+            productFlexBox.innerHTML = "";
+            arr.forEach((element) => {
+                element.name = element.name.substring(0, 60);
+                productFlexBox.innerHTML =
+                    productFlexBox.innerHTML + createCard(element);
+            });
+        } else {
+            let productFlexBox = document.querySelector("#productFlexBox");
+            let arr = [];
+            await fetch(`http://localhost:8080/products/get/${count}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => (arr = data));
+            productFlexBox.innerHTML = "";
+            arr.forEach((element) => {
+                element.name = element.name.substring(0, 60);
+                productFlexBox.innerHTML =
+                    productFlexBox.innerHTML + createCard(element);
+            });
+        }
+    }
+
     function createCard(obj) {
         return `
     <div class="card">
@@ -355,96 +500,27 @@
     </div>
     `;
     }
-
-    let priceSlashBox = document.querySelector("#productFlexBox");
-    let medicine = [
-        {
-            image: "https://img4.hkrtcdn.com/14798/prd_1479773-HealthKart-HK-Vitals-Healthy-Joints-60-tablets_c_t.jpg",
-            name: "MuscleBlaze Whey Protein, 4.4 lb, Rich Milk Chocolate",
-            price: 4535,
-            discount: 18,
-            rating: 4.4,
-            reviews: 1034,
-            _id: 13,
-        },
-        {
-            image: "https://img6.hkrtcdn.com/11003/prd_1100235-MuscleBlaze-Gold-Gainer-XXL-2.2-lb-Chocolate-Bliss_c_t.jpg",
-            name: "HealthKart Omega 3 1000mg with 180mg EPA and 120mg DHA, 60 softgels",
-            price: "375",
-            discount: 20,
-            rating: 4.3,
-            reviews: 1634,
-            _id: 12,
-        },
-        {
-            image: "https://img4.hkrtcdn.com/11965/prd_1196443-MuscleBlaze-High-Protein-Natural-Peanut-Butter-Unsweetened-0.750-kg-Crunchy_c_t.jpg",
-            name: "MuscleTech NitroTech Performance Series, 4 lb, Milk Chocolate",
-            price: 5635,
-            discount: 10,
-            rating: 4.6,
-            reviews: 1234,
-            _id: 11,
-        },
-        {
-            image: "https://img10.hkrtcdn.com/15757/prd_1575689_c_t.jpg",
-            name: "MuscleBlaze Natural Peanut Butter Unsweetened, 1 kg, Extra Crunchy",
-            price: 403,
-            discount: 26,
-            rating: 4.5,
-            reviews: 1831,
-            _id: 10,
-        },
-        {
-            image: "https://img4.hkrtcdn.com/14798/prd_1479773-HealthKart-HK-Vitals-Healthy-Joints-60-tablets_c_t.jpg",
-            name: "MuscleBlaze Whey Protein, 4.4 lb, Rich Milk Chocolate",
-            price: 4535,
-            discount: 18,
-            rating: 4.4,
-            reviews: 1034,
-            _id: 13,
-        },
-        {
-            image: "https://img6.hkrtcdn.com/11003/prd_1100235-MuscleBlaze-Gold-Gainer-XXL-2.2-lb-Chocolate-Bliss_c_t.jpg",
-            name: "HealthKart Omega 3 1000mg with 180mg EPA and 120mg DHA, 60 softgels",
-            price: "375",
-            discount: 20,
-            rating: 4.3,
-            reviews: 1634,
-            _id: 12,
-        },
-        {
-            image: "https://img4.hkrtcdn.com/11965/prd_1196443-MuscleBlaze-High-Protein-Natural-Peanut-Butter-Unsweetened-0.750-kg-Crunchy_c_t.jpg",
-            name: "MuscleTech NitroTech Performance Series, 4 lb, Milk Chocolate",
-            price: 5635,
-            discount: 10,
-            rating: 4.6,
-            reviews: 1234,
-            _id: 11,
-        },
-        {
-            image: "https://img10.hkrtcdn.com/15757/prd_1575689_c_t.jpg",
-            name: "MuscleBlaze Natural Peanut Butter Unsweetened, 1 kg, Extra Crunchy",
-            price: 403,
-            discount: 26,
-            rating: 4.5,
-            reviews: 1831,
-            _id: 10,
-        },
-    ];
-    medicine.forEach((element) => {
-        element.discountedPrice =
-            element.price - Math.floor(element.price / 100) * element.discount;
-        element.premiumPrice =
-            element.discountedPrice -
-            Math.floor(element.discountedPrice / 100) * 5;
-        element.name = element.name.substring(0, 60);
-        priceSlashBox.innerHTML = priceSlashBox.innerHTML + createCard(element);
-    });
-
-    function addToCart(e) {
-        console.log(e.getAttribute("data-id"));
+    showProducts(count);
+    async function showProducts(count) {
+        let productFlexBox = document.querySelector("#productFlexBox");
+        let arr = [];
+        await fetch(`http://localhost:8080/products/get/${count}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => (arr = data));
+        productFlexBox.innerHTML = "";
+        arr.forEach((element) => {
+            element.name = element.name.substring(0, 60);
+            productFlexBox.innerHTML =
+                productFlexBox.innerHTML + createCard(element);
+        });
     }
-    function scrollFunction1() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    function loadMore() {
+        count = count + 8;
+        showProducts(count);
     }
 </script>

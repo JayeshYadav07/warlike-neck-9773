@@ -2,12 +2,14 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const userSchema = mongoose.Schema(
     {
-        name: { type: String },
+        name: { type: String, required: true },
         email: {
             type: String,
+            required: true,
         },
         pass: {
             type: String,
+            required: true,
         },
     },
     {

@@ -11,7 +11,7 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use(authenticate);
-app.use("/cart", cartRouter);
+app.use("/carts", cartRouter);
 app.listen(8080, async () => {
     try {
         await connection;

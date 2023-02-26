@@ -10,15 +10,43 @@ productRouter.get("/createProduct", async (req, res) => {
         res.send("Sorry! Something went wrong");
     }
 });
-productRouter.get("/get", async (req, res) => {
+productRouter.get("/get/:count", async (req, res) => {
     try {
-        let data = await ProductModel.find(req.query);
+        let data = await ProductModel.find().limit(req.params.count);
         res.send(data);
     } catch (error) {
         res.send("Sorry! Something went wrong");
     }
 });
-productRouter.get("/get/priceSlash", async (req, res) => {
+productRouter.get("/getLowToHigh/:count", async (req, res) => {
+    try {
+        let data = await ProductModel.find()
+            .sort({ price: 1 })
+            .limit(req.params.count);
+        res.send(data);
+    } catch (error) {
+        res.send("Sorry! Something went wrong");
+    }
+});
+productRouter.get("/getHighToLow/:count", async (req, res) => {
+    try {
+        let data = await ProductModel.find()
+            .sort({ price: -1 })
+            .limit(req.params.count);
+        res.send(data);
+    } catch (error) {
+        res.send("Sorry! Something went wrong");
+    }
+});
+productRouter.get("/getByid/:id", async (req, res) => {
+    try {
+        let data = await ProductModel.findById(req.params.id);
+        res.send(data);
+    } catch (error) {
+        res.send("Sorry! Something went wrong");
+    }
+});
+productRouter.get("/priceSlash", async (req, res) => {
     try {
         let data = await ProductModel.find().sort({ price: 1 }).limit(4);
         res.send(data);
@@ -26,7 +54,7 @@ productRouter.get("/get/priceSlash", async (req, res) => {
         res.send("Sorry! Something went wrong");
     }
 });
-productRouter.get("/get/pickDay", async (req, res) => {
+productRouter.get("/pickDay", async (req, res) => {
     try {
         let data = await ProductModel.find().sort({ reviews: 1 }).limit(4);
         res.send(data);
@@ -34,7 +62,7 @@ productRouter.get("/get/pickDay", async (req, res) => {
         res.send("Sorry! Something went wrong");
     }
 });
-productRouter.get("/get/topDeals", async (req, res) => {
+productRouter.get("/topDeals", async (req, res) => {
     try {
         let data = await ProductModel.find().sort({ discount: -1 }).limit(4);
         res.send(data);
