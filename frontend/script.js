@@ -31,7 +31,7 @@ function createCard(obj) {
 async function priceSlashShow() {
     let priceSlashBox = document.querySelector("#priceSlashBox");
     let arr = [];
-    await fetch("http://localhost:8080/products/get/priceSlash", {
+    await fetch("http://localhost:8080/products/priceSlash", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ priceSlashShow();
 async function topDeals() {
     let top_deals = document.querySelector("#top_deals");
     let arr = [];
-    await fetch("http://localhost:8080/products/get/pickDay", {
+    await fetch("http://localhost:8080/products/pickDay", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -67,7 +67,7 @@ topDeals();
 async function pickDayshow() {
     let pick_of_the_day = document.querySelector("#pick_of_the_day");
     let arr = [];
-    await fetch("http://localhost:8080/products/get/topDeals", {
+    await fetch("http://localhost:8080/products/topDeals", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -83,6 +83,23 @@ async function pickDayshow() {
     });
 }
 pickDayshow();
-function addToCart(e) {
-    console.log(e.getAttribute("data-id"));
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
 }

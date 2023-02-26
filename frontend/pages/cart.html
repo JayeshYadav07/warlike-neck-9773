@@ -90,6 +90,7 @@
                 padding: 30px;
                 border-radius: 10px;
                 margin: 20px;
+                position: relative;
             }
             .cartItemTitle {
                 font-size: 15px;
@@ -130,6 +131,12 @@
             }
             .cartItemCounter .value {
                 color: #29d462;
+            }
+            .cartItemDelete {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                cursor: pointer;
             }
             #leftSection div {
                 background-color: white;
@@ -217,45 +224,7 @@
             <section id="cartContainer">
                 <div id="rightSection">
                     <h1 id="rightSectionHeading">Shopping Cart</h1>
-                    <div id="cartBox">
-                        <div class="cartItem">
-                            <div class="cartItemImg">
-                                <img
-                                    src="https://img7.hkrtcdn.com/24437/prd_2443606-MuscleBlaze-Whey-Gold-Protein-2.2-lb-Rich-Milk-Chocolate_c_t.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="cartItemDetails">
-                                <div class="cartItemTitle">
-                                    MuscleBlaze Whey Gold Protein, 2.2 lb Rich
-                                    Milk Chocolate
-                                </div>
-                                <div class="cartItemPrice">
-                                    <span class="price">₹3299</span>
-                                    <span class="off">25% OFF</span>
-                                </div>
-                                <div class="cartItemMRP">
-                                    MRP: <span> ₹4299</span>
-                                </div>
-                                <div class="cartItemCounter">
-                                    <button
-                                        class="decrement"
-                                        onclick="decrement()"
-                                    >
-                                        -
-                                    </button>
-                                    <span class="value">1</span>
-                                    <button
-                                        class="increment"
-                                        onclick="increment()"
-                                    >
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="cartItemDelete"></div>
-                        </div>
-                    </div>
+                    <div id="cartBox"></div>
                 </div>
                 <div id="leftSection">
                     <div id="pincodeCon">
@@ -278,8 +247,8 @@
                             />
                         </div>
                     </div>
-                    <div id="paymentBtnCon">
-                        Proceed to Pay ₹<span id="totalAmmount">123</span>
+                    <div id="paymentBtnCon" onclick="paymentBtn()">
+                        Proceed to Pay ₹<span id="totalAmmount">0</span>
                     </div>
                 </div>
             </section>
@@ -317,4 +286,188 @@
         </footer>
     </body>
 </html>
-<script></script>
+<script>
+    async function paymentBtn() {
+        await fetch("http://localhost:8080/carts/deleteall", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+        window.location.assign("./payment.html");
+    }
+    function createCart(data) {
+        return `
+            <div class="cartItem">
+                <div class="cartItemImg">
+                    <img
+                        src="${data.image}"
+                        style="width:130px"
+                        alt=""
+                    />
+                </div>
+                <div class="cartItemDetails">
+                    <div class="cartItemTitle">
+                        ${data.name}
+                    </div>
+                    <div class="cartItemPrice">
+                        <span class="price">₹${data.discountedPrice}</span>
+                        <span class="off">${data.discount}% OFF</span>
+                    </div>
+                    <div class="cartItemMRP">
+                        MRP: <span> ₹${data.price}</span>
+                    </div>
+                    <div class="cartItemCounter">
+                        <button
+                            class="decrement"
+                            data="${data._id}"
+                            onclick="decreaseQty(this)"
+                        >
+                            -
+                        </button>
+                        <span class="value">${data.qty}</span>
+                        <button
+                            class="increment"
+                            data="${data._id}"
+                            onclick="increaseQty(this)"
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
+                <div class="cartItemDelete" onclick="removeCartItem(this)" data="${data._id}"><img src="../images/delete.png" style="width: 18px;" alt=""/></div>
+            </div>
+        `;
+    }
+    async function showCartProducts() {
+        let arr = [];
+        await fetch("http://localhost:8080/carts", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: localStorage.getItem("token"),
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                let cartBox = document.querySelector("#cartBox");
+                cartBox.innerHTML = null;
+                let sum = 0;
+                data.forEach((element) => {
+                    sum += element.price * element.qty;
+                    cartBox.innerHTML = cartBox.innerHTML + createCart(element);
+                    console.log(element);
+                });
+                let totalAmmount = document.querySelector("#totalAmmount");
+                totalAmmount.innerText = sum;
+            });
+    }
+    showCartProducts();
+
+    // Delete items from cart
+
+    async function removeCartItem(e) {
+        const id = e.getAttribute("data");
+        console.log(id);
+        await fetch(`http://localhost:8080/carts/delete/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                Authorization: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                showCartProducts();
+            })
+            .catch((err) =>
+                console.log({ msg: "something went wwrong", err: err.message })
+            );
+    }
+
+    // // Increase Quantity   ------------!!!!!!!!!!!
+
+    function increaseQty(e) {
+        const id = e.getAttribute("data");
+        fetch(`http://localhost:8080/carts/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                Authorization: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                res.qty++;
+                fetch(`http://localhost:8080/carts/update/${id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-type": "application/json",
+                        Authorization: localStorage.getItem("token"),
+                    },
+                    body: JSON.stringify(res),
+                })
+                    .then((res) => res.json())
+                    .then((res) => {
+                        showCartProducts();
+                    })
+                    .catch((error) => {
+                        console.log({
+                            msg: "Something went wrong",
+                            error: error.message,
+                        });
+                    });
+            })
+            .catch((error) => {
+                console.log({
+                    msg: "Something went wrong",
+                    error: error.message,
+                });
+            });
+    }
+
+    function decreaseQty(e) {
+        const id = e.getAttribute("data");
+        fetch(`http://localhost:8080/carts/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                Authorization: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                res.qty = res.qty === 1 ? 1 : res.qty - 1;
+
+                fetch(`http://localhost:8080/carts/update/${id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-type": "application/json",
+                        Authorization: localStorage.getItem("token"),
+                    },
+                    body: JSON.stringify(res),
+                })
+                    .then((res) => res.json())
+                    .then((res) => {
+                        console.log(res);
+                        showCartProducts();
+                    })
+                    .catch((error) => {
+                        console.log({
+                            msg: "Something went wrong",
+                            error: error.message,
+                        });
+                    });
+            })
+            .catch((error) => {
+                console.log({
+                    msg: "Something went wrong",
+                    error: error.message,
+                });
+            });
+    }
+</script>

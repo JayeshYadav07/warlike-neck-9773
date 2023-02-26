@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="../images/small_logo_.png" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        />
+        <script
+            src="https://kit.fontawesome.com/2a66bc2625.js"
+            crossorigin="anonymous"
+            ;
+        ></script>
+        <link rel="stylesheet" href="../style/payment.css" />
+        <title>Payment Page</title>
+    </head>
+    <body>
+        <div class="main-back">
+            <div class="container m-auto bg-white p-5 bod-3">
+                <div class="row">
+                    <!-- CARD FORM -->
+                    <div class="col-lg-8 col-md-12">
+                        <form>
+                            <div
+                                class="header flex-between flex-vertical-center"
+                            >
+                                <div class="flex-vertical-center">
+                                    <i
+                                        class="ai-bitcoin-fill size-xl pr-sm f-main-color"
+                                    ></i>
+                                    <span class="title">
+                                        <img
+                                            src="../images/logo.png"
+                                            alt=""
+                                        /><span>Pay</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-data flex-fill flex-vertical">
+                                <!-- Card Number -->
+                                <div class="flex-between flex-vertical-center">
+                                    <div class="card-property-title">
+                                        <strong>Card Number</strong>
+                                        <span
+                                            >Enter 16-digit card number on the
+                                            card</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <!-- Card Field -->
+                                <div class="flex-between">
+                                    <div
+                                        class="card-number flex-vertical-center flex-fill"
+                                    >
+                                        <div
+                                            class="card-number-field flex-vertical-center flex-fill"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 48 48"
+                                                width="24px"
+                                                height="24px"
+                                            >
+                                                <path
+                                                    fill="#ff9800"
+                                                    d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z"
+                                                />
+                                                <path
+                                                    fill="#d50000"
+                                                    d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z"
+                                                />
+                                                <path
+                                                    fill="#ff3d00"
+                                                    d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z"
+                                                />
+                                            </svg>
+                                            <input
+                                                type="text"
+                                                placeholder="Card Number"
+                                                class="form-control"
+                                                id="cardNumber"
+                                                name="cardNumber"
+                                            />
+                                        </div>
+                                        <i
+                                            class="ai-circle-check-fill size-lg f-main-color"
+                                        ></i>
+                                    </div>
+                                </div>
+
+                                <!-- Expiry Date -->
+                                <div class="flex-between">
+                                    <div class="card-property-title">
+                                        <strong>Expiry Date</strong>
+                                        <span
+                                            >Enter the expiration date of the
+                                            card</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="card-property-value flex-vertical-center"
+                                    >
+                                        <div class="input-container half-width">
+                                            <input
+                                                class="numbers month-own"
+                                                type="text"
+                                                placeholder="MM"
+                                            />
+                                        </div>
+                                        <span class="m-md">/</span>
+                                        <div class="input-container half-width">
+                                            <input
+                                                class="numbers year-own"
+                                                type="text"
+                                                placeholder="YYYY"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CCV Number -->
+                                <div class="flex-between">
+                                    <div class="card-property-title">
+                                        <strong>CVC Number</strong>
+                                        <span
+                                            >Enter card verification code from
+                                            the back of the card</span
+                                        >
+                                    </div>
+                                    <div class="card-property-value">
+                                        <div class="input-container">
+                                            <input
+                                                id="cvc"
+                                                placeholder="Card CVV"
+                                                type="password"
+                                            />
+                                            <i
+                                                id="cvc_toggler"
+                                                class="ai-eye-open pointer"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Name -->
+                                <div class="flex-between">
+                                    <div class="card-property-title">
+                                        <strong>Cardholder Name</strong>
+                                        <span>Enter cardholder's name</span>
+                                    </div>
+                                    <div class="card-property-value">
+                                        <div class="input-container">
+                                            <input
+                                                id="name"
+                                                type="text"
+                                                class="uppercase"
+                                                placeholder="CARDHOLDER NAME"
+                                            />
+                                            <i class="ai-person"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex-between">
+                                    <div class="card-property-title">
+                                        <strong>Mobile No.</strong>
+                                        <span>Enter Mobile No.</span>
+                                    </div>
+                                    <div class="card-property-value">
+                                        <div class="input-container">
+                                            <input
+                                                id="phone"
+                                                type="text"
+                                                placeholder="Your Mobile No."
+                                            />
+                                            <i class="ai-phone"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action flex-center">
+                                <button
+                                    type="submit"
+                                    class="b-main-color pointer"
+                                    style="margin-bottom: 20px"
+                                >
+                                    <a href="./thankyou.html"> Pay Now</a>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
