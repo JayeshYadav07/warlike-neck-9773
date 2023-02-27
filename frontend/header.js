@@ -79,14 +79,13 @@ function loginUser() {
         .catch((err) => alert("Wrong Credentials"));
 }
 function logoutUesr() {
+    alert("User logged out.");
     localStorage.removeItem("token");
     let loginBtn = document.querySelector("#login_container > button");
     loginBtn.innerText = "Login";
     loginBtn.setAttribute("onclick", "showLogin()");
     let cart_count = document.getElementById("cart_count");
     cart_count.innerText = 0;
-    alert("User logged out...");
-    window.location.reload();
 }
 async function addToCart(e) {
     let productID = e.getAttribute("data-id");
@@ -160,4 +159,6 @@ function showCartCount() {
             cart_count.innerText = data.length;
         });
 }
-showCartCount();
+if (localStorage.getItem("token") != null) {
+    showCartCount();
+}

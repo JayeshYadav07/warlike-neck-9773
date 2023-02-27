@@ -366,7 +366,9 @@
                 totalAmmount.innerText = sum;
             });
     }
-    showCartProducts();
+    if (localStorage.getItem("token") != null) {
+        showCartProducts();
+    }
 
     // Delete items from cart
 
