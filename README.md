@@ -32,3 +32,27 @@ To get started with the FitnessBazzar, follow these steps:
 ## Conclusion
 
 The FitnessBazzar aims to provide a similar platform for consumers to access high-quality health and wellness products. With its intuitive user interface and comprehensive features, the clone offers a convenient and reliable platform for users to shop for their health and wellness needs.
+
+## Headers
+
+![Screenshot of HealthKart Clone](frontend/images/page1.png)
+
+## Product Look
+
+![Screenshot of HealthKart Clone](frontend/images/page2.png)
+
+## Download App
+
+![Screenshot of HealthKart Clone](frontend/images/page4.png)
+
+## Footer
+
+![Screenshot of HealthKart Clone](frontend/images/page5.png)
+
+## Login Page
+
+![Screenshot of HealthKart Clone](frontend/images/loginXsignupXpage6.png)
+
+## Cart Page
+
+![Screenshot of HealthKart Clone](frontend/images/cartpage.png)
